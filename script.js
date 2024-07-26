@@ -136,9 +136,20 @@ function updateGameStatus(condition) {
     gameOver = true;
 }
 
-document.getElementById("replayButton").addEventListener("click", () => {
-    location.reload();
-});
+function resetGame() {
+    gameOver = false;
+    flaggedCount = 0;
+    updateMinesLeft(numberOfMines);
+    tiles.forEach(tile => {
+        tile.dataset.status = "hidden";
+        tile.dataset.mine = "false";
+        tile.textContent = "";
+    });
+    placeMines();
+    modal.style.display = "none";
+}
+
+document.getElementById("replayButton").addEventListener("click", resetGame);
 
 document.getElementById("closeButton").addEventListener("click", () => {
     modal.style.display = "none";
