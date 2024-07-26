@@ -4,12 +4,20 @@ const boardSizeOptions = {
     large: 15
 };
 
+const difficultyOptions = {
+    easy: 0.1,
+    medium: 0.15,
+    hard: 0.2
+};
+
 let boardSize = boardSizeOptions.medium;
-let numberOfMines = Math.floor(boardSize * boardSize * 0.1);
+let currentDifficulty = 'easy';
+let numberOfMines = Math.floor(boardSize * boardSize * difficultyOptions[currentDifficulty]);
 const boardElement = document.querySelector(".board");
 const minesLeft = document.querySelector(".subtext");
 const modal = document.getElementById("gameModal");
 const boardSizeSelector = document.querySelector('.board-size-selector');
+const difficultySelector = document.querySelector('.game-difficulty-selector');
 const tiles = [];
 let flaggedCount = 0;
 let gameOver = false;
@@ -167,7 +175,7 @@ boardSizeSelector.addEventListener('click', e => {
     if (e.target.matches('[data-size]')) {
         const size = e.target.dataset.size;
         boardSize = boardSizeOptions[size];
-        numberOfMines = Math.floor(boardSize * boardSize * 0.2);
+        numberOfMines = Math.floor(boardSize * boardSize * difficultyOptions[currentDifficulty]);
 
         document.querySelectorAll('.board-size-selector [data-size]').forEach(btn => {
             btn.classList.remove('active');
@@ -175,6 +183,21 @@ boardSizeSelector.addEventListener('click', e => {
         e.target.classList.add('active');
 
         boardElement.style.setProperty('--size', boardSize);
+        resetGame();
+    }
+});
+
+difficultySelector.addEventListener('click', e => {
+    if (e.target.matches('[data-difficulty]')) {
+        const difficulty = e.target.dataset.difficulty;
+        currentDifficulty = difficulty;
+        numberOfMines = Math.floor(boardSize * boardSize * difficultyOptions[difficulty]);
+
+        document.querySelectorAll('.game-difficulty-selector [data-difficulty]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        e.target.classList.add('active');
+
         resetGame();
     }
 });

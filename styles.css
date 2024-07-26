@@ -165,13 +165,15 @@ h1, h2 {
     width: 80px;
 }
 
-.board-size-selector {
+.board-size-selector,
+.game-difficulty-selector {
     margin: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.board-size-selector > span {
+.board-size-selector > span,
+.game-difficulty-selector > span {
     font-size: 32px;
 }
