@@ -29,4 +29,17 @@ function placeMines() {
     }
 }
 
+boardElement.addEventListener("click", (e) => {
+    const tile = e.target;
+    if (tile.classList.contains("tile")) {
+        if (tile.dataset.mine === "true") {
+            console.log("Mine!");
+            tile.dataset.status = "mine";
+        } else {
+            console.log("Number");
+            tile.dataset.status = "number";
+        }
+    }
+});
+
 placeMines();
