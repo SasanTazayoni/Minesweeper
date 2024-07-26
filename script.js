@@ -29,9 +29,24 @@ function placeMines() {
     }
 }
 
-boardElement.addEventListener("click", (e) => {
+boardElement.addEventListener("contextmenu", e => {
+    e.preventDefault();
     const tile = e.target;
     if (tile.classList.contains("tile")) {
+        if (tile.dataset.status === "hidden") {
+            tile.dataset.status = "flagged";
+        } else if (tile.dataset.status === "flagged") {
+            tile.dataset.status = "hidden";
+        }
+    }
+});
+
+boardElement.addEventListener("click", e => {
+    const tile = e.target;
+    if (tile.classList.contains("tile")) {
+        if (tile.dataset.status === "flagged") {
+            return;
+        }
         if (tile.dataset.mine === "true") {
             console.log("Mine!");
             tile.dataset.status = "mine";

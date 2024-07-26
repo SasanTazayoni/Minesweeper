@@ -89,4 +89,8 @@ h1, h2 {
 
 .board>[data-status="flagged"] {
     background-color: rgb(81, 255, 0);
+    background-image: url('images/flag.png');
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
