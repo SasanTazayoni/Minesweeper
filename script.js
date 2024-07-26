@@ -2,10 +2,11 @@ const boardSize = 12;
 const numberOfMines = Math.floor(boardSize * boardSize * 0.1);
 const boardElement = document.querySelector(".board");
 const minesLeft = document.querySelector(".subtext");
+const modal = document.getElementById("gameModal");
 const tiles = [];
 let flaggedCount = 0;
 let gameOver = false;
-const modal = document.getElementById("gameModal");
+
 
 function updateMinesLeft(count) {
     minesLeft.textContent = `Mines Left: ${count}`;
@@ -154,6 +155,8 @@ document.getElementById("replayButton").addEventListener("click", resetGame);
 document.getElementById("closeButton").addEventListener("click", () => {
     modal.style.display = "none";
 });
+
+document.querySelector('[data-reset]').addEventListener("click", resetGame);
 
 placeMines();
 updateMinesLeft(numberOfMines);
