@@ -1,7 +1,13 @@
 const boardSize = 12;
 const numberOfMines = Math.floor(boardSize * boardSize * 0.1);
 const boardElement = document.querySelector(".board");
+const minesLeft = document.querySelector(".subtext");
 const tiles = [];
+let flaggedCount = 0;
+
+function updateMinesLeft(count) {
+    minesLeft.textContent = `Mines Left: ${count}`;
+}
 
 boardElement.style.setProperty('--size', boardSize);
 
@@ -35,8 +41,12 @@ boardElement.addEventListener("contextmenu", e => {
     if (tile.classList.contains("tile")) {
         if (tile.dataset.status === "hidden") {
             tile.dataset.status = "flagged";
+            flaggedCount++;
+            updateMinesLeft(numberOfMines - flaggedCount);
         } else if (tile.dataset.status === "flagged") {
             tile.dataset.status = "hidden";
+            flaggedCount--;
+            updateMinesLeft(numberOfMines - flaggedCount);
         }
     }
 });
@@ -58,3 +68,4 @@ boardElement.addEventListener("click", e => {
 });
 
 placeMines();
+updateMinesLeft(numberOfMines);
