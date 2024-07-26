@@ -5,6 +5,7 @@ const minesLeft = document.querySelector(".subtext");
 const tiles = [];
 let flaggedCount = 0;
 let gameOver = false;
+const modal = document.getElementById("gameModal");
 
 function updateMinesLeft(count) {
     minesLeft.textContent = `Mines Left: ${count}`;
@@ -123,14 +124,25 @@ function revealAllMines() {
 }
 
 function updateGameStatus(condition) {
+    const modalMessage = document.getElementById("modalMessage");
+
     if (condition === 'lose') {
-        console.log("Lose");
-        gameOver = true;
+        modalMessage.textContent = "You Lose!";
     } else if (condition === 'win') {
-        console.log("Win");
-        gameOver = true;
+        modalMessage.textContent = "You Win!";
     }
+
+    modal.style.display = "block";
+    gameOver = true;
 }
+
+document.getElementById("replayButton").addEventListener("click", () => {
+    location.reload();
+});
+
+document.getElementById("closeButton").addEventListener("click", () => {
+    modal.style.display = "none";
+});
 
 placeMines();
 updateMinesLeft(numberOfMines);
