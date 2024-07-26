@@ -139,7 +139,7 @@ h1, h2 {
     color: rgb(255, 251, 0);
     font-weight: 600;
     position: relative;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .modal-buttons button:hover {
