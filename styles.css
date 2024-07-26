@@ -152,8 +152,26 @@ h1, h2 {
         0 0 20px rgb(255, 251, 0);
 }
 
+.button.active {
+    color: rgb(8, 73, 8);
+    background: rgb(255, 251, 0);
+    border: 2px solid rgb(255, 251, 0);
+    pointer-events: none;
+}
+
 .button--reset {
     margin-bottom: 10px;
     padding: 5px 8px;
     width: 80px;
+}
+
+.board-size-selector {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-size-selector > span {
+    font-size: 32px;
 }

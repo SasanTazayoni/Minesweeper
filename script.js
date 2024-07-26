@@ -1,28 +1,37 @@
-const boardSize = 12;
-const numberOfMines = Math.floor(boardSize * boardSize * 0.1);
+const boardSizeOptions = {
+    small: 9,
+    medium: 12,
+    large: 15
+};
+
+let boardSize = boardSizeOptions.medium;
+let numberOfMines = Math.floor(boardSize * boardSize * 0.1);
 const boardElement = document.querySelector(".board");
 const minesLeft = document.querySelector(".subtext");
 const modal = document.getElementById("gameModal");
+const boardSizeSelector = document.querySelector('.board-size-selector');
 const tiles = [];
 let flaggedCount = 0;
 let gameOver = false;
-
 
 function updateMinesLeft(count) {
     minesLeft.textContent = `Mines Left: ${count}`;
 }
 
-boardElement.style.setProperty('--size', boardSize);
-
-for (let i = 0; i < boardSize; i++) {
-    for (let j = 0; j < boardSize; j++) {
-        const tile = document.createElement("div");
-        tile.classList.add("tile");
-        tile.dataset.status = "hidden";
-        tile.dataset.row = i;
-        tile.dataset.col = j;
-        boardElement.appendChild(tile);
-        tiles.push(tile);
+function createBoard() {
+    boardElement.innerHTML = '';
+    tiles.length = 0;
+    boardElement.style.setProperty('--size', boardSize);
+    for (let i = 0; i < boardSize; i++) {
+        for (let j = 0; j < boardSize; j++) {
+            const tile = document.createElement("div");
+            tile.classList.add("tile");
+            tile.dataset.status = "hidden";
+            tile.dataset.row = i;
+            tile.dataset.col = j;
+            boardElement.appendChild(tile);
+            tiles.push(tile);
+        }
     }
 }
 
@@ -36,6 +45,15 @@ function placeMines() {
             minesPlaced++;
         }
     }
+}
+
+function resetGame() {
+    gameOver = false;
+    flaggedCount = 0;
+    updateMinesLeft(numberOfMines);
+    createBoard();
+    placeMines();
+    modal.style.display = "none";
 }
 
 boardElement.addEventListener("contextmenu", e => {
@@ -137,19 +155,6 @@ function updateGameStatus(condition) {
     gameOver = true;
 }
 
-function resetGame() {
-    gameOver = false;
-    flaggedCount = 0;
-    updateMinesLeft(numberOfMines);
-    tiles.forEach(tile => {
-        tile.dataset.status = "hidden";
-        tile.dataset.mine = "false";
-        tile.textContent = "";
-    });
-    placeMines();
-    modal.style.display = "none";
-}
-
 document.getElementById("replayButton").addEventListener("click", resetGame);
 
 document.getElementById("closeButton").addEventListener("click", () => {
@@ -158,5 +163,22 @@ document.getElementById("closeButton").addEventListener("click", () => {
 
 document.querySelector('[data-reset]').addEventListener("click", resetGame);
 
+boardSizeSelector.addEventListener('click', e => {
+    if (e.target.matches('[data-size]')) {
+        const size = e.target.dataset.size;
+        boardSize = boardSizeOptions[size];
+        numberOfMines = Math.floor(boardSize * boardSize * 0.2);
+
+        document.querySelectorAll('.board-size-selector [data-size]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        e.target.classList.add('active');
+
+        boardElement.style.setProperty('--size', boardSize);
+        resetGame();
+    }
+});
+
+createBoard();
 placeMines();
 updateMinesLeft(numberOfMines);
