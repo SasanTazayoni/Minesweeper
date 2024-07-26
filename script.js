@@ -67,14 +67,52 @@ boardElement.addEventListener("click", e => {
             revealAllMines();
             updateGameStatus('lose');
         } else {
-            tile.dataset.status = "number";
-            const unrevealedTiles = tiles.filter(tile => tile.dataset.status === "hidden" && tile.dataset.mine !== "true");
+            revealTile(tile);
+            const unrevealedTiles = tiles.filter(tile =>
+                tile.dataset.status === "hidden" && tile.dataset.mine !== "true"
+            );
             if (unrevealedTiles.length === 0) {
                 updateGameStatus('win');
             }
         }
     }
 });
+
+function revealTile(tile) {
+    const row = parseInt(tile.dataset.row);
+    const col = parseInt(tile.dataset.col);
+    
+    if (tile.dataset.status !== "hidden" || tile.dataset.mine === "true") {
+        return;
+    }
+
+    tile.dataset.status = "number";
+    const adjacentTiles = getAdjacentTiles(row, col);
+
+    const mineCount = adjacentTiles.filter(adjTile => adjTile.dataset.mine === "true").length;
+    if (mineCount > 0) {
+        tile.textContent = mineCount;
+    } else {
+        adjacentTiles.forEach(adjTile => revealTile(adjTile));
+    }
+}
+
+function getAdjacentTiles(row, col) {
+    const adjacentTiles = [];
+
+    for (let i = row - 1; i <= row + 1; i++) {
+        for (let j = col - 1; j <= col + 1; j++) {
+            if (i >= 0 && i < boardSize && j >= 0 && j < boardSize) {
+                const adjTile = tiles.find(t => t.dataset.row == i && t.dataset.col == j);
+                if (adjTile && !(i === row && j === col)) {
+                    adjacentTiles.push(adjTile);
+                }
+            }
+        }
+    }
+
+    return adjacentTiles;
+}
 
 function revealAllMines() {
     tiles.forEach(tile => {
