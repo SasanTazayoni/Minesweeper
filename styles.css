@@ -29,6 +29,7 @@ body {
     grid-template-rows: repeat(var(--size), 60px);
     gap: 4px;
     background-color: #777;
+    border-radius: 5px;
 }
 
 .board > * {
@@ -55,6 +56,6 @@ body {
     background-color: none;
 }
 
-.board>[data-status="marked"] {
+.board>[data-status="flagged"] {
     background-color: yellow;
 }
