@@ -137,3 +137,18 @@ In essence, 'Orbitron' and 'Roboto' together enhance both the visual appeal and 
 * [Amiresposive](https://amiresponsive.co.uk/) used to display website on the most common devices.
 * [ChatGPT](https://chat.openai.com/) used to generate placeholder text and to verify code.
 * [Pexels](https://www.pexels.com/) used to obtain background for the main page. Thanks to Johannes Plenio.
+
+## Deployment
+
+1. Log into [GitHub](https://github.com/).
+2. Locate the [repository](https://github.com/SasanTazayoni/Minesweeper).
+3. Locate the settings option along the options bar at the top of the page.
+4. Locate the 'Pages' option on the left side bar and click on it.
+5. Under the 'Branch' subheading there should be a drop-down menu - select 'Master' from the branch options.
+6. Click the save button.
+7. Github pages will build your website with the code supplied and begin hosting it when it is completed - the process usually takes a few minutes.
+8. The website URL will now be visible on the green bar under the section header. This will remain there permanently and you can refer back to it at any time.
+
+## Credits
+
+* Thanks to [WebDevSimplified](https://www.youtube.com/@WebDevSimplified) for inspiration to build this project.
