@@ -15,6 +15,8 @@ let currentDifficulty = 'easy';
 let numberOfMines = Math.floor(boardSize * boardSize * difficultyOptions[currentDifficulty]);
 const boardElement = document.querySelector(".board");
 const minesLeft = document.querySelector(".subtext");
+const infoIcon = document.getElementById("infoIcon");
+const infoModal = document.getElementById("infoModal");
 const gameModal = document.getElementById("gameModal");
 const boardSizeSelector = document.querySelector('.board-size-selector');
 const difficultySelector = document.querySelector('.game-difficulty-selector');
@@ -171,11 +173,25 @@ document.getElementById("closeButton").addEventListener("click", () => {
     gameModal.style.display = "none";
 });
 
+document.getElementById("okButton").addEventListener("click", () => {
+    infoModal.style.display = "none";
+});
+
 document.querySelector('[data-reset]').addEventListener("click", resetGame);
 
-gameModal.addEventListener("click", (event) => {
-    if (event.target === gameModal) {
+gameModal.addEventListener("click", e => {
+    if (e.target === gameModal) {
         gameModal.style.display = "none";
+    }
+});
+
+infoIcon.addEventListener("click", () => {
+    infoModal.style.display = "block";
+});
+
+infoModal.addEventListener("click", e => {
+    if (e.target === infoModal) {
+        infoModal.style.display = "none";
     }
 });
 
