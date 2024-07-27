@@ -171,6 +171,12 @@ document.getElementById("closeButton").addEventListener("click", () => {
 
 document.querySelector('[data-reset]').addEventListener("click", resetGame);
 
+gameModal.addEventListener("click", (event) => {
+    if (event.target === gameModal) {
+        gameModal.style.display = "none";
+    }
+});
+
 boardSizeSelector.addEventListener('click', e => {
     if (e.target.matches('[data-size]')) {
         const size = e.target.dataset.size;
