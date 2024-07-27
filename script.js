@@ -159,8 +159,10 @@ function updateGameStatus(condition) {
         modalMessage.textContent = "You Win!";
     }
 
-    gameModal.style.display = "block";
     gameOver = true;
+    setTimeout(() => {
+        gameModal.style.display = "block";
+    }, 1500);
 }
 
 document.getElementById("replayButton").addEventListener("click", resetGame);
