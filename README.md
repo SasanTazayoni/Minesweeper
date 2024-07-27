@@ -38,3 +38,27 @@ The chosen colors for Nuclear Sweeper are particularly well-suited for a radioac
   * Mystery and Depth: It adds an element of mystery and seriousness, enhancing the game's overall atmosphere.
 
 ![Colour scheme](documentation/coolors.png)
+
+## Typography
+
+Using 'Orbitron' for headings and 'Roboto' for body text is ideal for Nuclear Sweeper due to their complementary characteristics:
+
+### 'Orbitron' for Headings
+
+* Futuristic Look: Its sleek, geometric design fits the game's radioactive/toxic theme.
+* Attention-Grabbing: Bold and distinctive, it highlights key information effectively.
+* Unique Personality: Adds a memorable, high-tech vibe to the game.
+
+### 'Roboto' for Body Text
+
+* Readability: Clear and easy to read, even at smaller sizes.
+* Modern and Neutral: Complements 'Orbitron' without visual conflict.
+* Versatility: Maintains clarity across different devices and screen sizes.
+
+### Combined Benefits
+
+* Contrast and Hierarchy: Clear visual hierarchy enhances navigation.
+* Consistent Style: Modern aesthetic creates a cohesive look.
+* Engagement: Striking headings and readable body text keep players focused and engaged.
+
+In essence, 'Orbitron' and 'Roboto' together enhance both the visual appeal and readability, fitting perfectly with Nuclear Sweeper's theme and ensuring an engaging user experience.
