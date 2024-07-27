@@ -177,3 +177,96 @@ h1, h2 {
 .game-difficulty-selector > span {
     font-size: 32px;
 }
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgb(8, 73, 8);
+    padding: 20px;
+}
+
+footer > p {
+    margin: 0 20px;
+}
+
+footer > .cube {
+    flex-shrink: 0;
+}
+
+.box > span:nth-of-type(1) {
+    --i: 0;
+}
+
+.box > span:nth-of-type(2) {
+    --i: 1;
+}
+
+.box > span:nth-of-type(3) {
+    --i: 2;
+}
+
+.box > span:nth-of-type(4) {
+    --i: 3;
+}
+
+.cube {
+    position: relative;
+    width: 32px;
+    height: 8px;
+    transform-style: preserve-3d;
+    transform: rotateX(-45deg) rotateY(45deg);
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.cube .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube .box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(21, 21, 25), rgb(56, 219, 56));
+    transform-style: preserve-3d;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(16px);
+    transition: 0.3s;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background: #222;
+    transform-style: preserve-3d;
+    transform: rotateX(90deg) translateZ(16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.cube .box:hover span,
+.cube .top:hover {
+    filter:
+        drop-shadow(0 0 10px rgb(56, 219, 56))
+        drop-shadow(0 0 20px rgb(56, 219, 56));
+}
+
+.top > i {
+    position: absolute;
+    font-size: 1.2em;
+    color: rgb(56, 219, 56);
+}
