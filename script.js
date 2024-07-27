@@ -25,7 +25,7 @@ let flaggedCount = 0;
 let gameOver = false;
 
 function updateMinesLeft(count) {
-    minesLeft.textContent = `Mines Left: ${count}`;
+    minesLeft.textContent = `Radioactive rooms: ${count}`;
 }
 
 function createBoard() {
