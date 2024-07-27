@@ -97,7 +97,61 @@ h1, h2 {
     background-position: center;
 }
 
-.modal {
+.info-icon-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.info-icon-container > i {
+    color: rgb(255, 251, 0);
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.info-icon-container > i:hover {
+    color: rgb(255, 251, 0);
+    opacity: 1;
+}
+
+.info-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.info-modal-content {
+    background-color: rgb(8, 73, 8);
+    margin: 5% auto;
+    padding: 30px;
+    border: 2px solid rgb(56, 219, 56);
+    text-align: center;
+    max-width: 800px;
+    border-radius: 10px;
+    color: rgb(255, 251, 0);
+    font-size: 16px;
+    text-align: left;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.info-modal-content > h2 {
+    text-align: center;
+}
+
+.info-modal-content li {
+    margin: 10px 0;
+}
+
+.game-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -109,7 +163,7 @@ h1, h2 {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-content {
+.game-modal-content {
     background-color: rgb(8, 73, 8);
     margin: 15% auto;
     padding: 20px;

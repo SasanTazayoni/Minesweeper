@@ -32,14 +32,41 @@
             <button class="button" data-difficulty="medium">Medium</button>
             <button class="button" data-difficulty="hard">Hard</button>
         </div>
+
+        <span class="info-icon-container">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
     </main>
 
-    <div id="gameModal" class="modal">
-        <div class="modal-content">
+    <div id="gameModal" class="game-modal">
+        <div class="game-modal-content">
             <span id="modalMessage"></span>
             <div class="modal-buttons">
                 <button class="button" id="replayButton">Replay</button>
                 <button class="button" id="closeButton">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="info-modal">
+        <div class="info-modal-content">
+            <h2>Instructions</h2>
+            <p>Welcome to Nuclear Sweeper, a thrilling variation of the classic Minesweeper game with a radioactive twist!</p>
+            
+            <strong>Objective:</strong>
+
+            <p>Your goal is to uncover all safe rooms on the board while marking radioactive rooms (mines) to prevent accidental exposure.</p>
+            
+            <strong>How to Play:</strong>
+            
+            <ul>
+                <li><strong>Sweep the Board:</strong> Click on the rooms to reveal whether they are safe or contain radioactive materials. Each room you uncover will either show a number indicating adjacent radioactive rooms or be empty.</li>
+                <li><strong>Mark Radioactive Rooms:</strong> Use flags to mark rooms suspected of containing radioactive materials. This helps in avoiding these rooms and sealing them off.</li>
+                <li><strong>Avoid Radioactive Rooms:</strong> Entering a room with radioactive material results in a loss. All remaining radioactive rooms will be revealed and the game ends.</li>
+                <li><strong>Win the Game:</strong> Successfully mark all radioactive rooms and uncover all safe rooms to win.</li>
+            </ul>
+            <div class="modal-buttons">
+                <button class="button" id="okButton">OK</button>
             </div>
         </div>
     </div>

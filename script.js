@@ -15,7 +15,7 @@ let currentDifficulty = 'easy';
 let numberOfMines = Math.floor(boardSize * boardSize * difficultyOptions[currentDifficulty]);
 const boardElement = document.querySelector(".board");
 const minesLeft = document.querySelector(".subtext");
-const modal = document.getElementById("gameModal");
+const gameModal = document.getElementById("gameModal");
 const boardSizeSelector = document.querySelector('.board-size-selector');
 const difficultySelector = document.querySelector('.game-difficulty-selector');
 const tiles = [];
@@ -61,7 +61,7 @@ function resetGame() {
     updateMinesLeft(numberOfMines);
     createBoard();
     placeMines();
-    modal.style.display = "none";
+    gameModal.style.display = "none";
 }
 
 boardElement.addEventListener("contextmenu", e => {
@@ -159,14 +159,14 @@ function updateGameStatus(condition) {
         modalMessage.textContent = "You Win!";
     }
 
-    modal.style.display = "block";
+    gameModal.style.display = "block";
     gameOver = true;
 }
 
 document.getElementById("replayButton").addEventListener("click", resetGame);
 
 document.getElementById("closeButton").addEventListener("click", () => {
-    modal.style.display = "none";
+    gameModal.style.display = "none";
 });
 
 document.querySelector('[data-reset]').addEventListener("click", resetGame);
