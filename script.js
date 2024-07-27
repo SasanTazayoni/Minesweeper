@@ -163,7 +163,7 @@ function updateGameStatus(condition) {
 
     gameOver = true;
     setTimeout(() => {
-        gameModal.style.display = "block";
+        gameModal.style.display = "flex";
     }, 1500);
 }
 
@@ -186,7 +186,7 @@ gameModal.addEventListener("click", e => {
 });
 
 infoIcon.addEventListener("click", () => {
-    infoModal.style.display = "block";
+    infoModal.style.display = "flex";
 });
 
 infoModal.addEventListener("click", e => {
