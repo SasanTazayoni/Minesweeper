@@ -62,3 +62,58 @@ Using 'Orbitron' for headings and 'Roboto' for body text is ideal for Nuclear Sw
 * Engagement: Striking headings and readable body text keep players focused and engaged.
 
 In essence, 'Orbitron' and 'Roboto' together enhance both the visual appeal and readability, fitting perfectly with Nuclear Sweeper's theme and ensuring an engaging user experience.
+
+## Features
+
+* The app consists of a main page with the game board and a footer. The github link has a glow-effect when hovered upon.
+
+![Colour scheme](documentation/mainpage.png)
+![Colour scheme](documentation/footer.png)
+![Colour scheme](documentation/github.png)
+
+* All buttons have a transparent background with a yellow border and yellow text. The text becomes dark green when the button is hovered and the button displays a yellow glow-effect.
+
+![Colour scheme](documentation/button.png)
+![Colour scheme](documentation/buttonhover.png)
+
+* There is an information icon which behaves as a button. This opens a modal to show the game instructions.
+
+![Colour scheme](documentation/infoicon.png)
+![Colour scheme](documentation/instructions.png)
+
+* There is an indicator above the board with text "Radioactive rooms" indicating the number of rooms that are a hazard (i.e. lose the game). This decreases every time a tile is flagged and increases again when the flag is removed.
+
+![Colour scheme](documentation/indicator.png)
+
+* There is a "Reset" Button to reset the game.
+
+![Colour scheme](documentation/reset.png)
+
+* The main game board initially consists of hidden tiles.
+
+![Colour scheme](documentation/hidden.png)
+
+* When a room is "clean", it will appear as a blue tile or a numbered blue tile. The number represents the number of adjacent radioactive rooms. Winning the game can be achieved by flipping all these tiles.
+
+![Colour scheme](documentation/cleantiles.png)
+
+* Rooms can be flagged to indicate a dangerous room in order to avoid.
+
+![Colour scheme](documentation/flagged.png)
+
+* Entering a radioactive room will show a radioactive symbol nd this will lose the game.
+
+![Colour scheme](documentation/mine.png)
+
+* Winning or losing a game opens a modal which gives the user an option to reset the game or to check out the board again.
+
+![Colour scheme](documentation/win.png)
+![Colour scheme](documentation/lose.png)
+
+* The board size can be adjusted to be small (9x9), medium (12x12) or large (15x15).
+
+![Colour scheme](documentation/boardsize.png)
+
+* The difficulty of the game can be adjusted - Easy, Medium or Hard which have 10%, 20% and 30% hazardous tiles respectively.
+
+![Colour scheme](documentation/difficulty.png)
