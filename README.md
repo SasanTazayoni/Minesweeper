@@ -117,3 +117,23 @@ In essence, 'Orbitron' and 'Roboto' together enhance both the visual appeal and 
 * The difficulty of the game can be adjusted - Easy, Medium or Hard which have 10%, 20% and 30% hazardous tiles respectively.
 
 ![Colour scheme](documentation/difficulty.png)
+
+## Technologies used
+
+### Languages
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Frameworks, libraries and programs used
+
+* [Font Awesome](https://fontawesome.com/) used for icons.
+* [Coolors](https://coolors.co/) used to display colour palette used on the website.
+* [Google Fonts](https://fonts.google.com/) used to import 'Orbitron' and 'Roboto' fonts.
+* [Github](https://github.com/) used for version control.
+* [VSCode](https://code.visualstudio.com/) used to develop project.
+* [Github pages](https://pages.github.com/) used to deploy and host the app.
+* [Amiresposive](https://amiresponsive.co.uk/) used to display website on the most common devices.
+* [ChatGPT](https://chat.openai.com/) used to generate placeholder text and to verify code.
+* [Pexels](https://www.pexels.com/) used to obtain background for the main page. Thanks to Johannes Plenio.
