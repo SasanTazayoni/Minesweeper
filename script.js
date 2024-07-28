@@ -162,6 +162,10 @@ function updateGameStatus(condition) {
     }
 
     gameOver = true;
+    showGameModal();
+}
+
+function showGameModal() {
     setTimeout(() => {
         gameModal.style.display = "flex";
     }, 1500);
