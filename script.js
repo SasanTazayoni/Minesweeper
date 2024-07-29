@@ -23,6 +23,7 @@ const difficultySelector = document.querySelector('.game-difficulty-selector');
 const tiles = [];
 let flaggedCount = 0;
 let gameOver = false;
+let gameModalTimeout;
 
 function updateMinesLeft(count) {
     minesLeft.textContent = `Radioactive rooms: ${count}`;
@@ -58,6 +59,11 @@ function placeMines() {
 }
 
 function resetGame() {
+    if (gameModalTimeout) {
+        clearTimeout(gameModalTimeout);
+        gameModalTimeout = null;
+    }
+
     gameOver = false;
     flaggedCount = 0;
     updateMinesLeft(numberOfMines);
@@ -166,7 +172,7 @@ function updateGameStatus(condition) {
 }
 
 function showGameModal() {
-    setTimeout(() => {
+    gameModalTimeout = setTimeout(() => {
         gameModal.style.display = "flex";
     }, 1500);
 }
