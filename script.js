@@ -7,7 +7,7 @@ const boardSizeOptions = {
 const difficultyOptions = {
     easy: 0.1,
     medium: 0.2,
-    hard: 0.3
+    hard: 0.25
 };
 
 let boardSize = boardSizeOptions.medium;
