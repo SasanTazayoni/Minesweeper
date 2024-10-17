@@ -1,4 +1,4 @@
-import "./styles.css";
+import "../assets/css/styles.css";
 
 type BoardSize = "small" | "medium" | "large";
 type Difficulty = "easy" | "medium" | "hard";

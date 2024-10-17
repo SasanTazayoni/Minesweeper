@@ -255,7 +255,7 @@ h2 {
 
 .board > [data-status="mine"] {
   background-color: red;
-  background-image: url("images/mine.png");
+  background-image: url("../images/mine.png");
   background-size: 80% 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -267,7 +267,7 @@ h2 {
 
 .board > [data-status="flagged"] {
   background-color: rgb(255, 251, 0);
-  background-image: url("images/flag.png");
+  background-image: url("../images/flag.png");
   background-size: 80% 80%;
   background-repeat: no-repeat;
   background-position: center;
