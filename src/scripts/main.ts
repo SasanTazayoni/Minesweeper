@@ -11,8 +11,8 @@ const boardSizeOptions: Record<BoardSize, number> = {
 
 const difficultyOptions: Record<Difficulty, number> = {
   easy: 0.15,
-  medium: 0.2,
-  hard: 0.25,
+  medium: 0.18,
+  hard: 0.21,
 };
 
 let boardSize: number = boardSizeOptions.medium;
