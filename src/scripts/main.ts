@@ -276,23 +276,23 @@ difficultySelector.addEventListener("click", (e) => {
 
   if (!target.matches("[data-difficulty]")) {
     return;
-  } else {
-    const difficulty = target.dataset.difficulty as Difficulty;
-    currentDifficulty = difficulty;
-
-    numberOfMines = Math.floor(
-      boardSize * boardSize * difficultyOptions[difficulty]
-    );
-
-    document
-      .querySelectorAll(".game-difficulty-selector [data-difficulty]")
-      .forEach((btn) => {
-        btn.classList.remove("active");
-      });
-    target.classList.add("active");
-
-    resetGame();
   }
+
+  const difficulty = target.dataset.difficulty as Difficulty;
+  currentDifficulty = difficulty;
+
+  numberOfMines = Math.floor(
+    boardSize * boardSize * difficultyOptions[difficulty]
+  );
+
+  document
+    .querySelectorAll(".game-difficulty-selector [data-difficulty]")
+    .forEach((btn) => {
+      btn.classList.remove("active");
+    });
+  target.classList.add("active");
+
+  resetGame();
 });
 
 createBoard();
