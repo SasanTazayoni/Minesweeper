@@ -188,7 +188,7 @@ function revealAllMines() {
   });
 }
 
-function updateGameStatus(condition: string) {
+function updateGameStatus(condition: "win" | "lose") {
   const modalMessage = document.querySelector<HTMLDivElement>("#modalMessage")!;
 
   if (condition === "lose") {
