@@ -247,46 +247,39 @@ infoModal.addEventListener("click", (e) => {
   }
 });
 
-boardSizeSelector.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
+function handleSelectorClick(
+  dataAttr: string,
+  containerSelector: string,
+  onSelect: (target: HTMLElement) => void
+) {
+  return (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (!target.matches(`[${dataAttr}]`)) return;
 
-  if (target.matches("[data-size]")) {
-    const size = target.dataset.size as keyof typeof boardSizeOptions;
-    boardSize = boardSizeOptions[size];
-    numberOfMines = calcMines();
-
-    document
-      .querySelectorAll(".board-size-selector [data-size]")
-      .forEach((btn) => {
-        btn.classList.remove("active");
-      });
-    target.classList.add("active");
-
-    resetGame();
-  }
-});
-
-difficultySelector.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
-
-  if (!target.matches("[data-difficulty]")) {
-    return;
-  }
-
-  const difficulty = target.dataset.difficulty as Difficulty;
-  currentDifficulty = difficulty;
-
-  numberOfMines = calcMines();
-
-  document
-    .querySelectorAll(".game-difficulty-selector [data-difficulty]")
-    .forEach((btn) => {
+    document.querySelectorAll(`${containerSelector} [${dataAttr}]`).forEach((btn) => {
       btn.classList.remove("active");
     });
-  target.classList.add("active");
+    target.classList.add("active");
 
-  resetGame();
-});
+    onSelect(target);
+    numberOfMines = calcMines();
+    resetGame();
+  };
+}
+
+boardSizeSelector.addEventListener(
+  "click",
+  handleSelectorClick("data-size", ".board-size-selector", (target) => {
+    boardSize = boardSizeOptions[target.dataset.size as keyof typeof boardSizeOptions];
+  })
+);
+
+difficultySelector.addEventListener(
+  "click",
+  handleSelectorClick("data-difficulty", ".game-difficulty-selector", (target) => {
+    currentDifficulty = target.dataset.difficulty as Difficulty;
+  })
+);
 
 createBoard();
 placeMines();
