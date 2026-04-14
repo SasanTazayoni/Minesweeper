@@ -36,6 +36,7 @@ const difficultySelector = document.querySelector<HTMLDivElement>(
 )!;
 const tiles: HTMLDivElement[] = [];
 let flaggedCount = 0;
+let unrevealedCount = 0;
 let gameOver = false;
 let gameModalTimeout: ReturnType<typeof setTimeout> | null = null;
 
@@ -86,6 +87,7 @@ function resetGame() {
   updateMinesLeft(numberOfMines);
   createBoard();
   placeMines();
+  unrevealedCount = tiles.filter((tile) => tile.dataset.mine !== "true").length;
   gameModal.style.display = "none";
 }
 
@@ -121,11 +123,7 @@ boardElement.addEventListener("click", (e) => {
       updateGameStatus("lose");
     } else {
       revealTile(tile);
-      const unrevealedTiles = tiles.filter(
-        (tile) =>
-          tile.dataset.status === "hidden" && tile.dataset.mine !== "true"
-      );
-      if (unrevealedTiles.length === 0) {
+      if (unrevealedCount === 0) {
         updateGameStatus("win");
       }
     }
@@ -146,6 +144,7 @@ function revealTile(tile: HTMLDivElement): void {
   }
 
   tile.dataset.status = "number";
+  unrevealedCount--;
   const adjacentTiles = getAdjacentTiles(row, col);
 
   const mineCount = adjacentTiles.filter(
