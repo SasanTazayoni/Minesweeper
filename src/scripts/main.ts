@@ -51,12 +51,8 @@ function createBoard(): void {
       tile.classList.add("tile");
       tile.dataset.status = "hidden";
 
-      if (typeof i === "number" && typeof j === "number") {
-        tile.dataset.row = i.toString();
-        tile.dataset.col = j.toString();
-      } else {
-        console.error("Invalid row or column index:", i, j);
-      }
+      tile.dataset.row = i.toString();
+      tile.dataset.col = j.toString();
 
       boardElement.appendChild(tile);
       tiles.push(tile);
