@@ -17,9 +17,12 @@ const difficultyOptions: Record<Difficulty, number> = {
 
 let boardSize: number = boardSizeOptions.medium;
 let currentDifficulty: Difficulty = "easy";
-let numberOfMines: number = Math.floor(
-  boardSize * boardSize * difficultyOptions[currentDifficulty]
-);
+
+function calcMines(): number {
+  return Math.floor(boardSize * boardSize * difficultyOptions[currentDifficulty]);
+}
+
+let numberOfMines: number = calcMines();
 const boardElement = document.querySelector<HTMLDivElement>(".board")!;
 const minesLeft = document.querySelector<HTMLDivElement>(".subtext")!;
 const infoIcon = document.querySelector<HTMLSpanElement>("#infoIcon")!;
@@ -249,9 +252,7 @@ boardSizeSelector.addEventListener("click", (e) => {
   if (target.matches("[data-size]")) {
     const size = target.dataset.size as keyof typeof boardSizeOptions;
     boardSize = boardSizeOptions[size];
-    numberOfMines = Math.floor(
-      boardSize * boardSize * difficultyOptions[currentDifficulty]
-    );
+    numberOfMines = calcMines();
 
     document
       .querySelectorAll(".board-size-selector [data-size]")
@@ -274,9 +275,7 @@ difficultySelector.addEventListener("click", (e) => {
   const difficulty = target.dataset.difficulty as Difficulty;
   currentDifficulty = difficulty;
 
-  numberOfMines = Math.floor(
-    boardSize * boardSize * difficultyOptions[difficulty]
-  );
+  numberOfMines = calcMines();
 
   document
     .querySelectorAll(".game-difficulty-selector [data-difficulty]")
