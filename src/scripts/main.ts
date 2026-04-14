@@ -266,7 +266,6 @@ boardSizeSelector.addEventListener("click", (e) => {
       });
     target.classList.add("active");
 
-    boardElement.style.setProperty("--size", boardSize.toString());
     resetGame();
   }
 });
