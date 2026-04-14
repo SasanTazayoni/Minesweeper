@@ -214,19 +214,13 @@ document
 document
   .querySelector<HTMLButtonElement>("#closeButton")
   ?.addEventListener("click", () => {
-    const gameModal = document.querySelector<HTMLDivElement>("#gameModal");
-    if (gameModal) {
-      gameModal.style.display = "none";
-    }
+    gameModal.style.display = "none";
   });
 
 document
   .querySelector<HTMLButtonElement>("#okButton")
   ?.addEventListener("click", () => {
-    const infoModal = document.querySelector<HTMLDivElement>("#infoModal");
-    if (infoModal && infoModal.style.display === "flex") {
-      infoModal.style.display = "none";
-    }
+    infoModal.style.display = "none";
   });
 
 document
