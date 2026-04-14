@@ -172,6 +172,8 @@ function getAdjacentTiles(row: number, col: number) {
           if (typeof rowValue === "string" && typeof colValue === "string") {
             return parseInt(rowValue) === i && parseInt(colValue) === j;
           }
+
+          return false;
         });
         if (adjTile && !(i === row && j === col)) {
           adjacentTiles.push(adjTile);
